@@ -20,6 +20,8 @@ months = {
 
 inputPath = "/Volumes/SummerHDD/iPhonePics"
 outputPath = "/Volumes/SummerHDD/Pics"
+# inputPath = "./input"
+# outputPath = "./output"
 global totalCount 
 
 def createLookUp():
@@ -57,7 +59,7 @@ def copyFiles(lookup, totalCount):
     for year in lookup.keys():
         for month in lookup[year].keys():
             for src in lookup[year][month]:
-                filename = src.split("/")[3]
+                filename = src.split("/")[-1]
                 dest = f"{outputPath}/{year}/{month}/{filename}"
                 shutil.copyfile(src, dest)
                 count += 1
